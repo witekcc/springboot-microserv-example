@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.iml
 *.ipr
 *.iws
@@ -19,3 +20,13 @@ node_modules
 npm-debug.log
 target
 out
+=======
+.gradle
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+>>>>>>> d015e49a6b05c42be48ba238209f0ec567bed146
