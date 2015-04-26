@@ -14,6 +14,7 @@ class UserRegistrationController @Autowired()(registeredUserRepository: Register
 
   import MessagingNames._
 
+
   @RequestMapping(value = Array("/user"), method = Array(RequestMethod.POST))
   def registerUser(@RequestBody request: RegistrationRequest) = {
     val registeredUser = new RegisteredUser(null, request.emailAddress, request.password)
