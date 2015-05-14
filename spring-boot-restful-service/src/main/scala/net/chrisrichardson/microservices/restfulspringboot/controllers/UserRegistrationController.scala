@@ -19,9 +19,13 @@ class UserRegistrationController @Autowired()(registeredUserRepository: Register
   def registerUser(@RequestBody request: RegistrationRequest) = {
     val registeredUser = new RegisteredUser(null, request.emailAddress, request.password)
     registeredUserRepository.save(registeredUser)
-    rabbitTemplate.convertAndSend(exchangeName, routingKey, NewRegistrationNotification(registeredUser.id, request.emailAddress, request.password))
+    //TODO: uncomment
+    //rabbitTemplate.convertAndSend(exchangeName, routingKey, NewRegistrationNotification(registeredUser.id, request.emailAddress, request.password))
     RegistrationResponse(registeredUser.id, request.emailAddress)
   }
+
+  @RequestMapping(Array("/"))
+    def home() : String = {"wc test"}
 
   @ResponseStatus(value = HttpStatus.CONFLICT, reason = "duplicate email address")
   @ExceptionHandler(Array(classOf[DuplicateKeyException]))
